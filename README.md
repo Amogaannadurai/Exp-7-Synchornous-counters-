@@ -1,7 +1,10 @@
 # Exp-6-Synchornous-counters - up counter and down counter 
-### AIM: To implement 4 bit up and down counters and validate  functionality.
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+To implement 4 bit up and down counters and validate  functionality.
+### HARDWARE REQUIRED:
+– PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED: 
+Quartus prime
 ### THEORY 
 
 ## UP COUNTER 
@@ -56,33 +59,47 @@ Program for flipflops  and verify its truth table in quartus using Verilog progr
 Developed by: 
 RegisterNumber:  
 */
-
-
-
-
+### UP COUNTER :
+module exp_6(clk, A);
+input clk;
+output reg [2:0]A;
+always @(posedge clk)
+begin
+	A[2]=(((A[0])&(A[1]))^A[2]);
+	A[1]=(A[0])^A[1];
+	A[0]=A[0]^1;
+end
+endmodule
+### DOWN COUNTER :
+module EXP_6B(clk,A);
+input clk;
+output reg[2:0]A;
+always @(posedge clk)
+begin
+	A[2]=(((~A[0])&(~A[1]))^A[2]);
+	A[1]=(~A[0])^A[1];
+	A[0]=1^A[0];
+end
+endmodule
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
 
+![image](https://github.com/Amogaannadurai/Exp-7-Synchornous-counters-/assets/148233865/b73103dc-b28c-4239-b7ef-2504441f95b3)
 
-
-
-
-
-
-
+![image](https://github.com/Amogaannadurai/Exp-7-Synchornous-counters-/assets/148233865/8243ae2c-c339-4e91-87cf-fdec9a465616)
 
 ### TIMING DIGRAMS FOR COUNTER  
 
+![image](https://github.com/Amogaannadurai/Exp-7-Synchornous-counters-/assets/148233865/2955770b-e5fa-4c82-a9d0-3c9592c9bbca)
 
-
-
+![image](https://github.com/Amogaannadurai/Exp-7-Synchornous-counters-/assets/148233865/4227bd2a-4c58-4539-b08b-690d8be69ed7)
 
 ### TRUTH TABLE 
 
+![image](https://github.com/Amogaannadurai/Exp-7-Synchornous-counters-/assets/148233865/fa6dda37-a811-4e60-b417-d622ae4d0990)
 
-
-
-
+![image](https://github.com/Amogaannadurai/Exp-7-Synchornous-counters-/assets/148233865/4295c026-00a9-414c-b544-be3f11b89b78)
 
 ### RESULTS 
+By this we have verified the truth table of 4-bit up-counter using verilog.
